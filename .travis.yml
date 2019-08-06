@@ -1,0 +1,7 @@
+language: go
+
+script:
+- go get github.com/aktau/github-release
+- github-release --help
+- curl -O https://storage.googleapis.com/gvisor/releases/nightly/latest/runsc
+- github-release upload --user khs1994-docker --repo gvisor-mirror --tag nightly --name "runsc" --file "runsc" -R
