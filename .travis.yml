@@ -8,7 +8,7 @@ script:
 - curl -O https://storage.googleapis.com/gvisor/releases/nightly/latest/runsc
 - chmod +x containerd-shim-runsc-v1.linux-amd64 runsc
 - export FILE_NAME="runsc-$(go env GOOS)-$(go env GOARCH)"
-- cd .. ; tar -z cvf ${FILE_NAME}.tar.gz runsc
+- cd .. ; tar -zcvf ${FILE_NAME}.tar.gz runsc
 - github-release upload --user khs1994-docker --repo gvisor-mirror --tag nightly --name "${FILE_NAME}.tar.gz" --file "${FILE_NAME}.tar.gz" -R
 
 env:
