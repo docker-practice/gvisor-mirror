@@ -13,4 +13,4 @@ script:
 
 env:
   global:
-    RUNSC_CONTAINERD_VERSION=0.0.3
+    - RUNSC_CONTAINERD_VERSION=0.0.3
