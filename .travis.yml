@@ -4,9 +4,10 @@ script:
 - go get github.com/aktau/github-release
 - github-release --help
 - mkdir runsc ; cd runsc
-- curl -Lo containerd-shim-runsc-v1 https://github.com/google/gvisor-containerd-shim/releases/download/v${RUNSC_CONTAINERD_VERSION}/containerd-shim-runsc-v1.linux-amd64
-- curl -Lo gvisor-containerd-shim https://github.com/google/gvisor-containerd-shim/releases/download/v${RUNSC_CONTAINERD_VERSION}/gvisor-containerd-shim.linux-amd64
-- curl -LO https://storage.googleapis.com/gvisor/releases/nightly/latest/runsc
+- curl -Lo containerd-shim-runsc-v1 https://storage.googleapis.com/gvisor/releases/nightly/latest/containerd-shim-runsc-v1
+- curl -Lo gvisor-containerd-shim   https://storage.googleapis.com/gvisor/releases/nightly/latest/gvisor-containerd-shim
+- curl -LO                          https://storage.googleapis.com/gvisor/releases/nightly/latest/runsc
+#                                   https://storage.googleapis.com/gvisor/releases/release/20200914.0/gvisor-containerd-shim
 - chmod +x gvisor-containerd-shim containerd-shim-runsc-v1 runsc
 - export FILE_NAME="runsc-$(go env GOOS)-$(go env GOARCH)"
 - tar -zcvf ${FILE_NAME}.tar.gz gvisor-containerd-shim containerd-shim-runsc-v1 runsc
@@ -14,4 +15,4 @@ script:
 
 env:
   global:
-    - RUNSC_CONTAINERD_VERSION=0.0.4
+    - RUNSC_VERSION=latest
