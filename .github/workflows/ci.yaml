@@ -3,7 +3,7 @@ on:
 
 jobs:
   ci:
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     steps:
     - run: |
         go get github.com/aktau/github-release
